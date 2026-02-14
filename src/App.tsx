@@ -1,32 +1,45 @@
-import { createSignal, createEffect, on } from 'solid-js'
+import { createEffect } from 'solid-js'
 import './App.css'
-import Button from './components/Button/Button'
-import preferences from './components/Preferences/Preferences'
+import preferences from './components/preferences/Preferences'
+import Banner from './components/banner/Banner'
+import { Route, Router } from '@solidjs/router'
+import Home from './route/home/Home'
+import Settings from './route/settings/Settings'
+
+const DATA_THEME = 'data-theme'
 
 function App() {
   createEffect(() => {
-    if (preferences.store.theme === preferences.ColorTheme.DARK) {
-      document.documentElement.setAttribute('data-theme', preferences.ColorTheme.LIGHT)
+    if (preferences.store.theme === preferences.ColorTheme.LIGHT) {
+      document.documentElement.setAttribute(DATA_THEME, preferences.ColorTheme.LIGHT)
     }
     else {
-      document.documentElement.setAttribute('data-theme', preferences.ColorTheme.DARK)
+      document.documentElement.setAttribute(DATA_THEME, preferences.ColorTheme.DARK)
     }
   })
 
-  const handleChangeTheme = () => {
-    if (preferences.store.theme === preferences.ColorTheme.DARK) {
-      preferences.setStore({ theme: preferences.ColorTheme.LIGHT })
-    }
-    else {
-      preferences.setStore({ theme: preferences.ColorTheme.DARK })
-    }
-  }
-
   return (
     <>
-      <Button 
-        label={`Enable ${preferences.store.theme} Mode`}
-        onClick={handleChangeTheme}/>
+      <Banner navigationButtons={[
+        { 
+          label: 'Home',
+          onClick: () => {
+            window.location.href = '/'
+          }
+        },
+        { 
+          label: 'Settings',
+          onClick: () => {
+            window.location.href = '/settings'
+          }
+        }
+      ]}/>
+      <div class="root-container">
+        <Router>
+          <Route path="/" component={Home} />
+          <Route path="/settings" component={Settings} />
+        </Router>
+      </div>
     </>
   )
 }
