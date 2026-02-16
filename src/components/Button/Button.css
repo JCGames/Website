@@ -1,41 +1,51 @@
 button {
   align-items: center;
-  background: var(--primary-color);
-  border: 0;
-  border-radius: 8px;
+  appearance: none;
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  border-width: 0;
   box-shadow: 
-    -10px -10px 30px 0 var(--secondary-shadow-color), 
-    10px 10px 30px 0 var(--primary-shadow-color);
+    rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+    var(--accent-color) 0 -3px 0 inset;
   box-sizing: border-box;
-  color: var(--primary-text-color);
+  color: var(--text-color);
   cursor: pointer;
-  display: flex;
-  font-family: "Cascadia Code",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
-  font-size: 1rem;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
   justify-content: center;
-  line-height: 1.5rem;
-  padding: 15px;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
   position: relative;
   text-align: left;
-  transition: .2s;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  white-space: pre;
-  width: max-content;
-  word-break: normal;
-  word-spacing: normal;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+[data-theme='Light'] button {
+  color: var(--text-color-contrast);
+}
+
+button:focus {
+  box-shadow: var(--accent-color) 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, var(--accent-color) 0 -3px 0 inset;
 }
 
 button:hover {
-  background: var(--primary-hover-color);
-  box-shadow: 
-    -15px -15px 30px 0 var(--secondary-shadow-color), 
-    15px 15px 30px 0 var(--primary-shadow-color);
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, var(--accent-color) 0 -3px 0 inset;
+  transform: translateY(-2px);
 }
 
-@media (min-width: 768px) {
-  button {
-    padding: 24px;
-  }
+button:active {
+  box-shadow: var(--accent-color) 0 3px 7px inset;
+  transform: translateY(2px);
 }

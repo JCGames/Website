@@ -1,0 +1,76 @@
+.banner {
+    background-color: var(--surface-color);
+
+    position: sticky;
+
+    top: 0px;
+    left: 0px;
+    right: 0px;
+
+    width: 100%;
+    min-height: 50px;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+.banner .column-1 {
+    position: relative;
+
+    grid-column: 1;
+
+    margin-left: 15px;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.banner .column-2 {
+    position: relative;
+
+    grid-column: 2;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.banner .column-3 {
+    position: relative;
+
+    grid-column: 3;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.profile-picture {
+    margin-right: 15px;
+
+    background-color: white;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 100%;
+
+    border: 3px solid var(--accent-color);
+
+    overflow: hidden;
+}
+
+[data-theme='Dark'] .profile-picture {
+    color: var(--text-color-contrast);
+}

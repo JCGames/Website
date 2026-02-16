@@ -14,11 +14,15 @@ export default function Settings() {
   }
 
   return (
-    <h1>
-      Settings
-      <Button 
-        label={`Enable ${(preferences.store.theme === preferences.ColorTheme.LIGHT ? 'Dark' : 'Light')} Mode`}
-        onClick={handleChangeTheme}/>
-    </h1>
+    <div class="settings-root">
+      <div class="settings-panel">
+        <div class="settings-title-container">
+          <h1>Settings</h1>
+        </div>
+        <Button 
+          label={`Enable ${(preferences.store.theme === preferences.ColorTheme.LIGHT ? 'Dark' : 'Light')} Mode`}
+          onClick={handleChangeTheme}/>
+      </div>
+    </div>
   )
 }

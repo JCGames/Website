@@ -1,3 +1,17 @@
-h1 {
-    color: var(--primary-text-color);
+.settings-root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.settings-panel {
+    width: 80%;
+
+    background-color: var(--surface-color);
+    padding: 15px;
+}
+
+.settings-title-container {
+    display: flex;
+    justify-content: center;
 }

@@ -1,10 +1,11 @@
 import { createEffect } from 'solid-js'
 import './App.css'
 import preferences from './components/preferences/Preferences'
-import Banner from './components/banner/Banner'
-import { Route, Router } from '@solidjs/router'
+import PageHeader from './components/banner/PageHeader'
+import { A, Route, Router } from '@solidjs/router'
 import Home from './route/home/Home'
 import Settings from './route/settings/Settings'
+import Button from './components/button/Button'
 
 const DATA_THEME = 'data-theme'
 
@@ -19,28 +20,21 @@ function App() {
   })
 
   return (
-    <>
-      <Banner navigationButtons={[
-        { 
-          label: 'Home',
-          onClick: () => {
-            window.location.href = '/'
-          }
-        },
-        { 
-          label: 'Settings',
-          onClick: () => {
-            window.location.href = '/settings'
-          }
-        }
-      ]}/>
-      <div class="root-container">
+    <div class="root-container">
+      
+      <PageHeader>
+        <Button label="Home" onClick={() => { window.location.href = '/' }} />
+        <Button label="Settings" onClick={() => { window.location.href = '/settings' }} />
+      </PageHeader>
+      
+      <div class="root-content-container">
         <Router>
           <Route path="/" component={Home} />
           <Route path="/settings" component={Settings} />
         </Router>
       </div>
-    </>
+
+    </div>
   )
 }
 
