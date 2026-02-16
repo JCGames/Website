@@ -1,7 +1,7 @@
 import { createEffect } from 'solid-js'
 import './App.css'
 import preferences from './components/preferences/Preferences'
-import PageHeader from './components/banner/PageHeader'
+import PageHeader from './components/page-header/PageHeader'
 import { A, Route, Router } from '@solidjs/router'
 import Home from './route/home/Home'
 import Settings from './route/settings/Settings'
@@ -10,8 +10,9 @@ import Button from './components/button/Button'
 const DATA_THEME = 'data-theme'
 
 function App() {
+  // set the color theme of the app
   createEffect(() => {
-    if (preferences.store.theme === preferences.ColorTheme.LIGHT) {
+    if (preferences.store.colorTheme === preferences.ColorTheme.LIGHT) {
       document.documentElement.setAttribute(DATA_THEME, preferences.ColorTheme.LIGHT)
     }
     else {

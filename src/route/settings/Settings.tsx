@@ -1,15 +1,15 @@
-import Button from '../../components/button/Button'
-import preferences from '../../components/preferences/Preferences'
+import Button from '@components/button/Button'
+import preferences from '@components/preferences/Preferences'
 
 import './Settings.css'
 
 export default function Settings() {
   const handleChangeTheme = () => {
-    if (preferences.store.theme === preferences.ColorTheme.DARK) {
-        preferences.setStore({ theme: preferences.ColorTheme.LIGHT })
+    if (preferences.store.colorTheme === preferences.ColorTheme.DARK) {
+        preferences.setStore({ colorTheme: preferences.ColorTheme.LIGHT })
     }
     else {
-        preferences.setStore({ theme: preferences.ColorTheme.DARK })
+        preferences.setStore({ colorTheme: preferences.ColorTheme.DARK })
     }
   }
 
@@ -20,7 +20,7 @@ export default function Settings() {
           <h1>Settings</h1>
         </div>
         <Button 
-          label={`Enable ${(preferences.store.theme === preferences.ColorTheme.LIGHT ? 'Dark' : 'Light')} Mode`}
+          label={`Enable ${(preferences.store.colorTheme === preferences.ColorTheme.LIGHT ? 'Dark' : 'Light')} Mode`}
           onClick={handleChangeTheme}/>
       </div>
     </div>

@@ -23,7 +23,13 @@
     "noUnusedParameters": false,
     "erasableSyntaxOnly": false,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    "paths": {
+      "@components/*": [
+        "./src/components/*"
+      ]
+    }
   },
   "include": ["src"]
 }

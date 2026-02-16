@@ -3,17 +3,17 @@ import { createStore } from 'solid-js/store'
 
 const STORE_NAME = 'userPreferences';
 
-enum ColorThemeMode {
+enum ColorTheme {
   LIGHT = 'Light',
   DARK = 'Dark'
 }
 
 export type PreferencesType = {
-  theme: ColorThemeMode
+  colorTheme: ColorTheme
 }
 
 const [store, setStore] = createStore<PreferencesType>({
-    theme: ColorThemeMode.LIGHT
+    colorTheme: ColorTheme.LIGHT
 })
 
 createRoot(() => {
@@ -32,7 +32,7 @@ createRoot(() => {
 })
 
 export default {
-  ColorTheme: ColorThemeMode,
+  ColorTheme: ColorTheme,
   store: store,
   setStore: setStore
 }
